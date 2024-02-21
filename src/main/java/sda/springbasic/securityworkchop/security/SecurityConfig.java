@@ -29,26 +29,26 @@ public class SecurityConfig {
     private static final String ALL_LINK = "/hello/forAll/**";
     private static final String LOGIN_LINK = "/api/login/**";
 
-//    @Bean
-//    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//
-//        http.csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(autz -> {
-//                    autz
-//                            .requestMatchers(ADMIN_LINK).hasRole("ADMIN")
-//                            .requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
-//                            .requestMatchers(USER_LINK).hasAnyRole("USER")
-//                            .requestMatchers(ALL_LINK).permitAll()
-//                            .requestMatchers(LOGIN_LINK).permitAll()
-//                            .requestMatchers("/dummyV2/get").hasRole("ADMIN")
-//                            .requestMatchers("/dummyV2/post").hasRole("ADMIN")
-//                            .requestMatchers("/dummyV2/put").hasRole("ADMIN")
-//                            .requestMatchers("/dummyV2/delete").hasRole("ADMIN");
-//                })
-//                .httpBasic(Customizer.withDefaults());
-//
-//        return http.build();
-//    }
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+        http.csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(autz -> {
+                    autz
+                            .requestMatchers(ADMIN_LINK).hasRole("ADMIN")
+                            .requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
+                            .requestMatchers(USER_LINK).hasAnyRole("USER")
+                            .requestMatchers(ALL_LINK).permitAll()
+                            .requestMatchers(LOGIN_LINK).permitAll()
+                            .requestMatchers("/dummyV2/get").hasRole("ADMIN")
+                            .requestMatchers("/dummyV2/post").hasRole("ADMIN")
+                            .requestMatchers("/dummyV2/put").hasRole("ADMIN")
+                            .requestMatchers("/dummyV2/delete").hasRole("ADMIN");
+                })
+                .httpBasic(Customizer.withDefaults());
+
+        return http.build();
+    }
 
     @Bean
     PasswordEncoder encoder() {

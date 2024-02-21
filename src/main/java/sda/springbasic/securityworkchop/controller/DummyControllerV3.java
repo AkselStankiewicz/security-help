@@ -24,13 +24,13 @@ public class DummyControllerV3 {
         return ResponseEntity.ok("Welcome from POST method");
     }
 
-    @GetMapping("/put")
+    @PutMapping("/put")
     @RolesAllowed({"ADMIN", "GUEST"})
     public ResponseEntity<String> putMethod() {
         return ResponseEntity.ok("Welcome from PUT method");
     }
 
-    @GetMapping("/delete")
+    @DeleteMapping("/delete")
     @RolesAllowed({"ADMIN", "GUEST"})
     public ResponseEntity<String> deleteMethod() {
         return ResponseEntity.ok("Welcome from DELETE method");
